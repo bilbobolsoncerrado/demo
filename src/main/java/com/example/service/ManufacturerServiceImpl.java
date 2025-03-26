@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Date;
 
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {
@@ -28,7 +29,16 @@ public class ManufacturerServiceImpl implements ManufacturerService {
         Objects.requireNonNull(year);
         return this.repository.findAllByYear(year);
     }
-
+    @Override
+    public List<Manufacturer> findAllByYearRequest(Integer year) {
+        Objects.requireNonNull(year);
+        return this.repository.findAllByYear(year);
+    }
+    @Override
+    public List<Manufacturer> findAllByInitialDate(Date initialDate) {
+        Objects.requireNonNull(initialDate);
+        return this.repository.findAllByInitialDate(initialDate);
+    }
     @Override
     public Optional<Manufacturer> findById(Long id) {
         return this.repository.findById(id);

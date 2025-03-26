@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import java.util.Date;
 
 @SpringBootApplication(scanBasePackages = "com.example")
 @EnableJpaRepositories("com.example.repository")
@@ -20,9 +21,9 @@ public class DemoApplication {
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 
 
-	var repo = context.getBean(ManufacturerRepository.class);
-        repo.save(new
+	    var repo = context.getBean(ManufacturerRepository.class);
 
-	Manufacturer(null,"manufacturer1",1000,1990));
+
+        repo.save(new Manufacturer(null,"manufacturer1",1000,1990,new Date()));
 
 }}

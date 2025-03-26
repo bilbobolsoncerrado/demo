@@ -4,6 +4,7 @@ import com.example.model.Manufacturer;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
 
 /*
 CRUD:
@@ -17,6 +18,8 @@ public interface ManufacturerService {
     // RETRIEVE
     List<Manufacturer> findAll();
     List<Manufacturer> findAllByYear(Integer year);
+    List<Manufacturer> findAllByYearRequest(Integer year);
+    List<Manufacturer> findAllByInitialDate(Date initialDate);
     Optional<Manufacturer> findById(Long id);
     Optional<Manufacturer> findByName(String name);
 

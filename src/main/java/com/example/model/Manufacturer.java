@@ -1,6 +1,7 @@
 package com.example.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "manufacturers")
@@ -19,14 +20,27 @@ public class Manufacturer {
     @Column(name = "init_year")
     private Integer year;
 
+    @Column(name = "initial_date")
+    @Temporal(TemporalType.DATE)
+    private Date initialDate;
+
     public Manufacturer() {
     }
 
-    public Manufacturer(Long id, String name, Integer numEmployees, Integer year) {
+    public Date getInitialDate() {
+        return initialDate;
+    }
+
+    public void setInitialDate(Date initialDate) {
+        this.initialDate = initialDate;
+    }
+
+    public Manufacturer(Long id, String name, Integer numEmployees, Integer year, Date initialDate) {
         this.id = id;
         this.name = name;
         this.numEmployees = numEmployees;
         this.year = year;
+        this.initialDate=initialDate;
     }
 
     public Long getId() {
