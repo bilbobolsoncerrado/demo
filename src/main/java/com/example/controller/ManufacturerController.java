@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api")
@@ -24,11 +26,13 @@ public class ManufacturerController {
      */
     @GetMapping("/manufacturers")
     public ResponseEntity<List<Manufacturer>> findAll(){
-        List<Manufacturer> manufacturers = this.service.findAll();
+        //throw new RuntimeException("Error simulado para pruebas");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parámetros incorrectos");
+     /*   List<Manufacturer> manufacturers = this.service.findAll();
         if (manufacturers.isEmpty())
             return ResponseEntity.notFound().build();
 
-       return ResponseEntity.ok(manufacturers);
+       return ResponseEntity.ok(manufacturers);*/
     }
 
     /*
