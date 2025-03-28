@@ -5,6 +5,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "manufacturers")
+@NamedQuery(
+        name = "Manufacturer.countById",
+        query = "SELECT COUNT(m) FROM Manufacturer m WHERE m.id = :id"
+)
 public class Manufacturer {
 
     @Id

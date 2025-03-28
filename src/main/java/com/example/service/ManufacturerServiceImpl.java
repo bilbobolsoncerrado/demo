@@ -64,4 +64,8 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public void deleteAll() {
 
     }
+    @Override
+    public Long contarPorId(Long id) {
+        return this.repository.countById(id);
+    }
 }

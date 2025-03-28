@@ -26,13 +26,15 @@ public class ManufacturerController {
      */
     @GetMapping("/manufacturers")
     public ResponseEntity<List<Manufacturer>> findAll(){
+        // throw para simular un 50X
         //throw new RuntimeException("Error simulado para pruebas");
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parámetros incorrectos");
-     /*   List<Manufacturer> manufacturers = this.service.findAll();
+        // throw para simular un 40X
+        //throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Parámetros incorrectos");
+        List<Manufacturer> manufacturers = this.service.findAll();
         if (manufacturers.isEmpty())
             return ResponseEntity.notFound().build();
 
-       return ResponseEntity.ok(manufacturers);*/
+       return ResponseEntity.ok(manufacturers);
     }
 
     /*
@@ -107,5 +109,9 @@ public ResponseEntity<List<Manufacturer>> findAllByInitialDate(
         this.service.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
+    @GetMapping("/count/{id}")
+    public ResponseEntity<Long> contarPorId(@PathVariable Long id) {
+        Long count = this.service.contarPorId(id);
+        return ResponseEntity.ok(count);
+    }
 }

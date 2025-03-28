@@ -30,6 +30,8 @@ public interface ManufacturerService {
     void deleteById(Long id);
     void deleteAll();
 
+    Long contarPorId(Long id);
+
     // Más lógica de negocio:
     // 1. Coches fabricados
     // 2. Beneficios obtenidos
